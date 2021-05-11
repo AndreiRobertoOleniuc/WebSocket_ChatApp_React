@@ -1,7 +1,16 @@
-const http = require('http').createServer();
-
-const io = require('socket.io')(http,{
+const express = require('express');
+const app = express();
+const http = require('http');
+var cors = require('cors')
+app.use(cors())
+const server = http.createServer(app);
+const io = require("socket.io")(server,{
     cors:{origin:"*"}
+});
+
+
+app.get('/', (req, res) => {
+    res.send('Hello');
 });
 
 io.on('connection',(socket)=>{  
@@ -9,7 +18,7 @@ io.on('connection',(socket)=>{
 
     socket.on('message',(message)=>{
         console.log(message);
-        io.emit("message",`${socket.id.substr(0,2)} said ${message}`);
+        io.emit("message",`${message}`);
     });
 
     socket.on("smallchat",(message)=>{
@@ -18,4 +27,6 @@ io.on('connection',(socket)=>{
     })
 })
 
-http.listen(8080, ()=>console.log("listening on http://localhost:8080"));
+server.listen(8080, () => {
+  console.log('listening on *:8080');
+});
