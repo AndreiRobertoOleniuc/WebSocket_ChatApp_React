@@ -1,9 +1,10 @@
 import React from 'react'
 
-function Message() {
+function Message({ key, name, message, owner }) {
     return (
-        <div>
-            
+        <div key={key} className={owner}>
+            <p className="name">{name}</p>
+            <p className="message">{message}</p>
         </div>
     )
 }

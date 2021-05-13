@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import socketClient from "socket.io-client";
+import Message from "./Message";
 
 function ChatPage({ userName }) {
     const [chat, setChat] = useState([]);
@@ -13,8 +14,6 @@ function ChatPage({ userName }) {
 
     const connectToChat = () => {
         socket.on("message", data => {
-            console.log("This is the pres Chat: " + chat);
-            console.log(data);
             setChat(chat => [...chat, data]);
         })
     }
@@ -31,17 +30,14 @@ function ChatPage({ userName }) {
         socket.emit("message", { name: userName, message: input });
     }
     return (
-        <div>
+        <div className="chat">
             <div className="header">
                 <h1>Chat</h1>
             </div>
             <div className="chatArea">
                 <ul>
                     {chat.map((item, key) => (
-                        <div key={key}>
-                            <p>{item.name}</p>
-                            <h3>{item.message}</h3>
-                        </div>
+                        <Message key={key} name={item.name} message={item.message} owner={item.name === userName ? "send" : "receive"} />
                     ))}
                 </ul>
             </div>
