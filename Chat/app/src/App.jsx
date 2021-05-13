@@ -1,16 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import NamePage from "./Pages/NamePage";
+import ChatPage from "./Pages/ChatPage";
 
-function App() {
-  useEffect(() => {
-    fetch('http://localhost:8080/')
-      .then(data => console.log(data))
-      .catch(err => console.error(err));
-  }, []);
+export default function App() {
+  const [userName, setUserName] = useState("");
   return (
     <div>
-      <h1>Working</h1>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <NamePage setUserName={setUserName} userName={userName} />
+          </Route>
+          <Route exact path="/Chat">
+            <ChatPage userName={userName} />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   )
 }
 
-export default App
