@@ -32,17 +32,24 @@ function ChatPage({ userName }) {
     }
     return (
         <div>
-            <h1>Chat</h1>
-            <ul>
-                {chat.map((item, key) => (
-                    <div key={key}>
-                        <p>{item.name}</p>
-                        <h3>{item.message}</h3>
-                    </div>
-                ))}
-            </ul>
-            <input type="text" name="" id="" onChange={(e) => { setInput(e.target.value) }} />
-            <button onClick={sendMessage}>Send</button>
+            <div className="header">
+                <h1>Chat</h1>
+            </div>
+            <div className="chatArea">
+                <ul>
+                    {chat.map((item, key) => (
+                        <div key={key}>
+                            <p>{item.name}</p>
+                            <h3>{item.message}</h3>
+                        </div>
+                    ))}
+                </ul>
+            </div>
+            <div className="inputs">
+                <input type="text" onChange={(e) => { setInput(e.target.value) }}
+                    onKeyPress={(e) => { if (e.key === "Enter") { sendMessage() } }} />
+                <button onClick={sendMessage}>Send</button>
+            </div>
         </div>
     )
 }
