@@ -21,7 +21,7 @@ io.on('connection',(socket)=>{
         console.log(message);
         chat.push(message);
         io.emit("message",message);
-    });
+    }); 
 })
 
 server.listen(8080, () => {
