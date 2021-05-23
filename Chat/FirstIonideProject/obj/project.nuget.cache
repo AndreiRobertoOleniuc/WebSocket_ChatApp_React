@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "hJMrHQxBfGNYvNQjLm4/OFFjG89K87AJmISMOvkx+RT249XL0aSRMhFIlRnzqru3CYzlOsXE+lHIImpWzr5kQA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Andrei Oleniuc\\Desktop\\Code\\Projects\\websockets\\Chat\\FirstIonideProject\\FirstIonideProject.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Andrei Oleniuc\\.nuget\\packages\\fsharp.core\\5.0.0\\fsharp.core.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

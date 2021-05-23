@@ -10,8 +10,11 @@
   "author": " <Andrei Oleniuc>",
   "license": "ISC",
   "dependencies": {
+    "@rodrigogs/mysql-events": "^0.6.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysqli": "^3.0.11",
     "socket.io": "^4.1.0"
   }
 }
