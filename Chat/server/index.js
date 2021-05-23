@@ -15,6 +15,9 @@ app.get("/getAllMessages",(req,res)=>{
     res.status(200).send(chat);
 })
 
+app.get("/",(req,res)=>{
+    res.status(200).send("Test");
+})
 
 io.on('connection',(socket)=>{  
     socket.on('message',(message)=>{
